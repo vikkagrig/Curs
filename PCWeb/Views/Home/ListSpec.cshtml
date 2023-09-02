@@ -1,0 +1,105 @@
+﻿@model List
+@using PCWeb.Models
+@using PCWeb.Controllers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/site.css">
+    <title>Списки заявлений</title>
+</head>
+<body>
+    <header class="header">
+        <div class='container header__container'>
+            <a href="/" class="header__logo">
+                <picture><source srcset="/img/logo.png" type="image/webp"><img src="/img/logo.png" alt="Logo"></picture>
+            </a>
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="/profile.html" class="header__link">Профиль</a></li>
+                    <li class="header__menu-item"><a href="/faculties.html" class="header__link">Подать заявление</a></li>
+                    <li class="header__menu-item"><a href="#" class="header__link header__link_active">Списки заявлений</a></li>
+                    <li class="header__menu-item"><a href="/Home/Index" class="header__link">Выход</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="faculties">
+            <div class='container'>
+                <div class="faculties__select-group">
+                    <div class="faculties__select-item">
+                        <label class="faculties__label" for="faculties__select1">Факультет/институт</label>
+                        <div class="faculties__select">
+                            <select name="sel" id="faculties__select1" asp-action="ListSpec" asp-controller="home">
+                                @foreach (Faculty f in ViewBag.Fac)
+                                {
+                                    <option value="@f.IDFac">@f.Name</option>
+                                }
+                            </select>
+                            <span class="focus"></span>
+                        </div>
+                    </div>
+                    <div class="faculties__select-item">
+                        <label class="faculties__label" for="faculties__select2">Специальность</label>
+                        <div class="faculties__select">
+                            <select id="faculties__select2">
+                                @foreach (Spaciality s in ViewBag.Sp)
+                                {
+                                    <option value="@s.IDSpec">@s.Name</option>
+                                }
+                            </select>
+                            <span class="focus"></span>
+                        </div>
+                    </div>
+                    <div class="faculties__select-item">
+                        <label class="faculties__label" for="faculties__select3">Форма обучения</label>
+                        <div class="faculties__select">
+                            <select id="faculties__select3">
+                                <option value="option_1">Бюджет</option>
+                                <option value="option_2">Платная форма</option>
+                            </select>
+                            <span class="focus"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="faculties__amount">
+                    <div class="faculties__amount-img"><img src="/img/briefcase.svg" alt=""></div>
+                    <div class="faculties__amount-num">@ViewBag.Sp.Count</div>
+                    <div class="faculties__amount-name">Заявлений</div>
+                </div>
+                <table class="faculties__table">
+                    <thead class="faculties__table-head">
+                        <tr class="faculties__table-row">
+                            <th class="faculties__table-header">Номер заявления</th>
+                            <th class="faculties__table-header">Номер абитуриента</th>
+                            <th class="faculties__table-header">Баллы ЕГЭ</th>
+                            <th class="faculties__table-header">Приоритет</th>
+                        </tr>
+                    </thead>
+                    <tbody class="faculties__table-body">
+                        @foreach (List m in ViewBag.List)
+                        {
+                            <tr class="faculties__table-row">
+                                <td class="faculties__table-cell">@m.IDList</td>
+                                <td class="faculties__table-cell">@m.IDEntrant</td>
+                                @foreach (Entrant e in ViewBag.Entrant)
+                                {
+                                    @if (e.IDEntrant == m.IDEntrant)
+                                    {
+                                        <td class="faculties__table-cell">@e.Point</td>
+                                    }
+                                }
+                                <td class="faculties__table-cell"><div class="faculties__table-flex-container">@m.Priority</div></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="/js/site.js"></script>
+</body>
+</html>

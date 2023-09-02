@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:datagrid="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             x:Class="PCMob.Speciality">
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#FFEBEBF3" Offset="0" />
+            <GradientStop Color="White" Offset="1" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="C1">#FFFFFF</Color>
+            <Color x:Key="C2">#000000</Color>
+            <DataTemplate x:Key="cellTemplate">
+                <Grid BackgroundColor="White">
+                    <Label Text="{Binding Text}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </Grid>
+            </DataTemplate>
+            <Style TargetType="Entry">
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#FF797878"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#FF797878"/>
+                <Setter Property="HeightRequest" Value="40"/>
+            </Style>
+            <Style TargetType="datagrid:DataGrid">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="10, 0">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="10" Orientation="Horizontal">
+                <Image Source="/KAI.png" WidthRequest="130" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                <Label Text="Факультет/Институт"/>
+                <Picker x:Name="inst" SelectedIndexChanged="inst_SelectedIndexChanged"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="num" Text="0" FontAttributes="Bold"/>
+                    <Label x:Name="text" Text=" специальностей"/>
+                </StackLayout>
+                <ScrollView Orientation="Both" HorizontalScrollBarVisibility="Never">
+                    <datagrid:DataGrid x:Name="table" Margin=" 0, 10" HeightRequest="0" IsVisible="false" IsEnabled="False" >
+                        <datagrid:DataGrid.Columns>
+                            <datagrid:DataGridColumn Title="Код" Width="0.2*" PropertyName="Column1"/>
+                            <datagrid:DataGridColumn Title="Название" Width="*" PropertyName="Column2"/>
+                            <datagrid:DataGridColumn Title="Бюджетные места" Width="0.3*" PropertyName="Column3"/>
+                            <datagrid:DataGridColumn Title="Платные места" Width="0.3*" PropertyName="Column4"/>
+                            <datagrid:DataGridColumn Title="Срок обучения" Width="0.3*" PropertyName="Column5"/>
+                            <datagrid:DataGridColumn Title="Проходной балл" Width="0.3*" PropertyName="Column6"/>
+                            <datagrid:DataGridColumn Title="Стоимость" Width="0.2*" PropertyName="Column7"/>
+                        </datagrid:DataGrid.Columns>
+                    </datagrid:DataGrid>
+                </ScrollView>
+            </StackLayout>
+            <Label Text="Выберите специальность" />
+            <Picker x:Name="spec"/>
+            <Label Text="Выберите приоритет"/>
+            <Picker x:Name="pr">
+                <Picker.Items>
+                    <x:String>1</x:String>
+                    <x:String>2</x:String>
+                    <x:String>3</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Выберите форму обучения"/>
+            <Picker x:Name="form">
+                <Picker.Items>
+                    <x:String>Бюджет</x:String>
+                    <x:String>Платная форма</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Text="Подать заявление" Clicked="Button_Clicked" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

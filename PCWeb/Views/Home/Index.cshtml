@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/site.css">
+    <title>Авторизация</title>
+</head>
+<body>
+    <header class="header">
+        <div class='container header__container'>
+            <a href="/" class="header__logo">
+                <picture><source srcset="/img/logo.png" type="image/webp"><img src="/img/logo.png" alt="Logo"></picture>
+            </a>
+            <a href="#" class="header__guest">Войти как гость</a>
+        </div>
+    </header>
+    <main>
+        <section class="form">
+            <div class='container'>
+                <div class="form__wrapper">
+                    <div class="form__content">
+                        <form class="form__body" asp-action="Enter" asp-controller="home">
+                            <div class="form__input">
+                                <input name="login" type="text" placeholder="Введите логин:" required>
+                            </div>
+                            <div class="form__input form__password hide">
+                                <input name="password" type="password" placeholder="Введите пароль:" required>
+                                <a href="#"></a>
+                            </div>
+                            <div class="form__footer">
+                                <a href="/Home/reg" class="form__link">Еще нет аккаунта?</a>
+                                <button type="submit" class="form__btn">Войти</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/js/site.js"></script>
+</body>
+</html>

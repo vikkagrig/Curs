@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PCMob.Profile">
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#FFEBEBF3" Offset="0" />
+            <GradientStop Color="White" Offset="1" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#FF797878"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#FF797878"/>
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="Margin" Value="0, 5"/>
+            <Setter Property="Background" Value="#FFEAEAEA"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="Center" Margin="10" Orientation="Horizontal">
+                <Image Source="/KAI.png" WidthRequest="130"/>
+                <Label Text="Редактировать" x:Name="red" Margin="0, 10, 10, 0" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
+                <StackLayout>
+                    <Image WidthRequest="250" Margin="10" x:Name="ph" HeightRequest="200" HorizontalOptions="Center"/>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Start" Margin="10, 0">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Фамилия: "/>
+                            <Label x:Name="lastname" Text="Виктория" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Имя: "/>
+                            <Label x:Name="firstname" Text="Виктория" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Отчество: "/>
+                            <Label x:Name="fathname" Text="Виктория" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Дата рождения: "/>
+                            <Label x:Name="hb" Text="Виктория" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Паспортные данные: "/>
+                            <Label x:Name="pasp" Text="Виктория" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Баллы ЕГЭ: "/>
+                            <Label x:Name="ege" Text="Виктория" FontAttributes="Bold"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="15" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Button Clicked="Button_Clicked" Text="Подать заявление"/>
+                        <Button Clicked="Button_Clicked_1" Text="Cписок заявлений"/>
+                        <Button Clicked="Button_Clicked_2" Text="Мои заявления"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

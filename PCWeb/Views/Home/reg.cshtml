@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/site.css">
+    <title>Регистрация</title>
+</head>
+    <body>
+        <header class="header">
+    <div class='container header__container'>
+        <a href="/" class="header__logo">
+            <picture><source srcset="/img/logo.png" type="image/webp"><img src="/img/logo.png" alt="Logo"></picture>
+        </a>
+            <a href="/Home/Index" class="header__guest">Назад</a>
+    </div>
+</header>
+        <main>
+            <section class="form">
+                <div class='container'>
+                    <div class="form__wrapper">
+                        <div class="form__content">
+                        <form class="form__body" asp-action="reg" asp-controller="home" enctype="multipart/form-data">
+                                <div class="form__input">
+                                    <input name="login" type="text" placeholder="Введите логин" required>
+                                </div>
+                                <div class="form__input form__password hide">
+                                    <input name="password" type="password" placeholder="Придумайте пароль" required>
+                                    <a href="#"></a>
+                                </div>
+                                <div class="form__input form__password hide">
+                                    <input name="repeat_password" type="password" placeholder="Повторите пароль" required>
+                                    <a href="#"></a>
+                                </div>
+                                <div class="form__input">
+                                    <input name="lastname" type="text" placeholder="Фамилия" required>
+                                </div>
+                                <div class="form__input">
+                                    <input name="firstname" type="text" placeholder="Имя" required>
+                                </div>
+                                <div class="form__input">
+                                    <input name="fathername" type="text" placeholder="Отчество" required>
+                                </div>
+                                <div class="form__input">
+                                <input name="datebirthday" type="date" id="date" min="1923-01-01" max="2010-01-01" required>
+                                    <label for="date" class="form__date">Выберите дату рождения</label>
+                                </div>
+                                <div class="form__input">
+                                    <input name="personalydata" type="number" placeholder="Паспортные данные" required>
+                                </div>
+                                <div class="form__input">
+                                    <input name="point" type="number" placeholder="Баллы ЕГЭ" required>
+                                </div>
+                                <div class="form__input">
+                                <input name="photo" type="file" id="upload" accept=".jpg, .jpeg, .png" required>
+                                    <label id="photo" for="upload" class="form__upload">Выберите фото</label>
+                                    <p class="par_after_ph">Успешно загружено</p>
+                                </div>
+                                <button type="submit" class="form__btn">Зарегистрироваться</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    <script src="/js/site.js"></script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PCMob.Reg">
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#FFEBEBF3" Offset="0" />
+            <GradientStop Color="White" Offset="1" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextColor" Value="#FF797878"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#FF797878"/>
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="Margin" Value="0, 5"/>
+            <Setter Property="Background" Value="#FFEAEAEA"/>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+        <StackLayout HorizontalOptions="Fill" VerticalOptions="Center" Margin="10" Orientation="Horizontal">
+            <Image Source="/KAI.png" WidthRequest="130" />
+        </StackLayout>
+        <ScrollView Margin="30, 100, 30, 150" >
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="Center" Background="White"  Padding="5">
+                <Entry x:Name="log" Placeholder="Введите логин"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Entry x:Name="pas" Placeholder="Придумайте пароль" IsPassword="True" WidthRequest="280"/>
+                    <Image Source="/hide.png" WidthRequest="20" x:Name="im1"/>
+                    <Image Source="/show.png" WidthRequest="0" Visual="Hidden" x:Name="im2"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Entry x:Name="pas2" Placeholder="Повторите пароль" IsPassword="True" WidthRequest="280"/>
+                    <Image Source="/hide.png" WidthRequest="20" x:Name="im3"/>
+                    <Image Source="/show.png" WidthRequest="0" Visual="Hidden" x:Name="im4"/>
+                </StackLayout>
+                <Entry x:Name="f" Placeholder="Фамилия"/>
+                <Entry x:Name="i" Placeholder="Имя"/>
+                <Entry x:Name="o" Placeholder="Отчество"/>
+                <DatePicker x:Name="d" Date="01.01.2005" MaximumDate="01.01.2010" MinimumDate="01.01.1923"/>
+                <Entry x:Name="p" Placeholder="Паспортные данные" Keyboard="Numeric"/>
+                <Entry x:Name="ege" Placeholder="Сумма баллов ЕГЭ" Keyboard="Numeric"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button Background="White" Text="Выберите фото" BorderWidth="1" BorderColor="Gray" Clicked="Button_Clicked_1"/>
+                    <Label x:Name="im" Margin="3, 10, 3, 10" FontSize="14"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Button Text="Зарегистрироваться"  Clicked="Button_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
